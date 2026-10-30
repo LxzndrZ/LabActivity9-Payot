@@ -41,7 +41,7 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse($schedules as $row)
+                @forelse($schedules->sortByDesc('scheduled_at') as $row)
                     <tr class="{{ $loop->odd ? 'bg-gray-50' : 'bg-white' }}">
                         <td class="py-2 pr-4">{{ $loop->iteration }}</td>
                         <td class="py-2 pr-4">{{ $row->patient_name }}</td>

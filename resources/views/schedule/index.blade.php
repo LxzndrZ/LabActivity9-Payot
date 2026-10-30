@@ -4,7 +4,7 @@
 @section('content')
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         <h1 class="text-2xl font-bold">Vaccination Schedule</h1>
-        <p class="text-sm text-gray-500">{{ $schedules->count() }} appointment(s), earliest first</p>
+        <p class="text-sm text-gray-500">{{ $schedules->count() }} appointment(s), latest first</p>
     </div>
 
     <x-panel title="Full Schedule">
@@ -21,13 +21,13 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse($schedules as $row)
+                @forelse($schedules->sortByDesc('scheduled_at') as $row)
                     <tr class="{{ $loop->first ? 'bg-emerald-50 font-semibold' : ($loop->odd ? 'bg-gray-50' : 'bg-white') }}">
                         <td class="py-2 pr-4">{{ $loop->iteration }}</td>
                         <td class="py-2 pr-4">
                             {{ $row->patient_name }}
                             @if($loop->first)
-                                <span class="ml-1 bg-emerald-600 text-white text-xs px-2 py-0.5 rounded">Next</span>
+                                <span class="ml-1 bg-emerald-600 text-white text-xs px-2 py-0.5 rounded">Latest</span>
                             @endif
                         </td>
                         <td class="py-2 pr-4 hidden md:table-cell">{{ $row->purok }}</td>
