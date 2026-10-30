@@ -59,7 +59,7 @@ class VaccinationSeeder extends Seeder
                 'purok'        => 'Purok 2',
                 'vaccine'      => 'Hepatitis B',
                 'dose'         => '1st dose',
-                'scheduled_at' => '2026-10-14',
+                'scheduled_at' => '2026-05-20',
                 'status'       => 'Done',
             ],
         ];
