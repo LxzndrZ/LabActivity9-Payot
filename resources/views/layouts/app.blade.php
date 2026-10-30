@@ -12,8 +12,10 @@
         <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <div class="flex gap-4">
                 <a href="/dashboard" class="font-bold">Bakuna Tracker</a>
+                @auth
                 <a href="/dashboard">Dashboard</a>
                 <a href="/schedule">Schedule</a>
+                @endauth
             </div>
 
             <div class="flex items-center gap-3">
